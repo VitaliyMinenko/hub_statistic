@@ -7,13 +7,15 @@ A simple application which will help us to compare two different GitHub reposito
 
 ### Requirements
 For correct work should be installed PHP version min. 5.4.0
+Latest version of composer.
 
 ### How to start the application.
 * Download this application from repository.
 * Open shell terminal and go to folder with application.
-* Start next command.
+* Start next commands.
 
 ```
+composer install
 php artisan serve
 ``` 
 * After you can see next message.
