@@ -23,6 +23,7 @@ Laravel development server started on http://127.0.0.1:8000/
 ``` 
 
 * Now application is ready you can use it with API interfaces:
+* For test application you can use any Rest Clients for example (Postman, Advanced Rest Client etc...).
 
 ##### Method of HTTP Request.
 
@@ -100,6 +101,5 @@ Example answear if repository is not exist.
     "response": [],
 }
 ```
-
 
 
