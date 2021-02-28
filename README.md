@@ -2,13 +2,13 @@
 #### Version 1.0b
 #### Author: Vitalii Minenko
 
-A simple application which will help us to compere two different GitHub repositories, and check which repository is more popular.
+A simple application which will help us to compare two different GitHub repositories, and check which repository is more popular.
 
 
 ### Requirements
-For correct work should install PHP with minimum version 5.4.0
+For correct work should be installed PHP version min. 5.4.0
 
-### Haw we can start the application.
+### How to start the application.
 * Download this application from repository.
 * Open shell terminal and go to folder with application.
 * Start next command.
@@ -22,8 +22,8 @@ php artisan serve
 Laravel development server started on http://127.0.0.1:8000/
 ``` 
 
-* Now application is ready you can use it with API interfaces:
-* For test application you can use any Rest Clients for example (Postman, Advanced Rest Client etc...).
+* Now application is ready, you can use it with API interfaces:
+* For testing the application you can use any Rest Clients for example (Postman, Advanced Rest Client etc...).
 
 ##### Method of HTTP Request.
 
@@ -32,7 +32,7 @@ Laravel development server started on http://127.0.0.1:8000/
 ##### Headers of HTTP Request.
 * Content-Type : application/json
 
-##### Api commands and example of answers.
+##### Api commands and example responses.
 
 * Example request for comparing github repositories. (Url)
 
@@ -51,7 +51,7 @@ http://localhost:8000/api/get-information-by-repositories/
 }
 ```
 
-Example of answear by our request. 
+Example of response on request. 
 
 ```
 {
@@ -93,7 +93,7 @@ Example of answear by our request.
  }   
 }
 ```
-Example answear if repository is not exist.
+Example of response if repository is not exist.
 ```
 {
     "status": "ok",
