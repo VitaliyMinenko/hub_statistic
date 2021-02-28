@@ -1,40 +1,105 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Github statistic.
+#### Version 1.0b
+#### Author: Vitalii Minenko
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+A simple application which will help us to compere two different GitHub repositories, and check which repository is more popular.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+### Requirements
+For correct work should install PHP with minimum version 5.4.0
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Haw we can start the application.
+* Download this application from repository.
+* Open shell terminal and go to folder with application.
+* Start next command.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+```
+php artisan serve
+``` 
+* After you can see next message.
 
-## Learning Laravel
+```
+Laravel development server started on http://127.0.0.1:8000/
+``` 
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+* Now application is ready you can use it with API interfaces:
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+##### Method of HTTP Request.
 
-## Contributing
+* POST
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+##### Headers of HTTP Request.
+* Content-Type : application/json
 
-## Security Vulnerabilities
+##### Api commands and example of answers.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+* Example request for comparing github repositories. (Url)
 
-## License
+```
+http://localhost:8000/api/get-information-by-repositories/
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+##### Api interface can accept only the following parameters.
+* first_repository - Repository name in next format Author/Repository `auxiliary/rater`.
+* second_repository - Repository name in next format Author/Repository `retejs/rete`.
+
+```
+{
+  "first_repository": "auxiliary/rater",
+  "second_repository": "retejs/rete/"
+}
+```
+
+Example of answear by our request. 
+
+```
+{
+    "status": "ok",
+    "message": "",
+    "response": {
+        "compered info": {
+        "Best result by forks": "retejs/rete - 401",
+        "Best result by stars": "retejs/rete - 6380",
+        "Best result by watchers": "retejs/rete - 6380",
+        "Most new": "Undefined",
+        "Haw many PR is open": "retejs/rete - 3",
+        "Haw many PR is closed": "The value is same"
+    },
+    "first repository info": {
+    "auxiliary/rater": {
+    "Number of forks": 43,
+    "Number of stars": 112,
+    "Number of watchers": 112,
+    "Date of the latest release": "Date is undefined",
+        "Pull requests": {
+        "open": 1,
+        "close": 0
+        }
+    }
+ },
+    "second repository info": {
+        "retejs/rete": {
+        "Number of forks": 401,
+        "Number of stars": 6380,
+        "Number of watchers": 6380,
+        "Date of the latest release": "2020-10-17 18:34",
+            "Pull requests": {
+            "open": 3,
+            "close": 0
+            }
+        }
+    }
+ }   
+}
+```
+Example answear if repository is not exist.
+```
+{
+    "status": "ok",
+    "message": " By second repository name nothing found.",
+    "response": [],
+}
+```
+
+
+
